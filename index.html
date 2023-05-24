@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quirk</title>
+
+    <link rel="stylesheet" href="../public/style/style.min.css">
+
+    <link rel="stylesheet" href="./print_js/print.css">
+</head>
+
+<body>
+
+
+    <div class="modal-loader"></div>
+
+
+
+
+    <header>
+        <ul>
+            <div class="logo">
+                <li href="">BVMCES Graduation 2022-2023</li>
+            </div>
+
+
+
+            This Web App is created and developed by Dawn Andrew N. Rivero
+            <div class="zoom_and_undo_container">
+
+
+                <div class="zoom-container">
+                    <button id="zoomOut">&#9866;</button>
+                    VIEW
+                    <button id="zoomIn">&#10010; </button>
+                </div>
+
+
+            </div>
+        </ul>
+
+    </header>
+    <div class="sub_header">
+        <div>
+            <div class="dropdown dropdown-files">
+                <li class="dropbtn dropbtn-files">Canvas</li>
+                <div id="myDropdown" class="dropdown-content">
+                    <li id="download-image" style="display: flex; justify-content: space-between;">Download <span>
+                            (Control +
+                            d)</span></li>
+                    <li><a href="index.html" target="_blank" style="text-decoration:none; color: #333;"> Create new
+                            tab</a></li>
+
+                    <li class="honor-canvas"> With Honor Canvas
+                    </li>
+                    <li class="class-picture"> Class Picture
+                    </li>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="style-container ">
+
+
+            <div class="fonts_and_text-center">
+
+                <select id="fontFamilySelect" class="fontFamilySelect  "></select>
+                <input type="number" value="18" id="fontSize"><br>
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+        <div class="text-style-align ">
+
+
+            <!-- color -->
+            <input type="color" id="color" value="#008080">
+            <div>
+
+                <label for="color"> <img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4LjMxIDEwLjA3Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZvbnQtc2l6ZTo5LjAzcHg7ZmlsbDojZmZmO2ZvbnQtZmFtaWx5OkFyaWFsUm91bmRlZE1UQm9sZCwgQXJpYWwgUm91bmRlZCBNVCBCb2xkO30uY2xzLTJ7ZmlsbDojMDBhOTlkO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y29sb3IgaWNvbjwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48dGV4dCBjbGFzcz0iY2xzLTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuOTEgNy44KSI+QTwvdGV4dD48cmVjdCBjbGFzcz0iY2xzLTIiIHk9IjguNDUiIHdpZHRoPSI4LjMxIiBoZWlnaHQ9IjEuNjEiIHJ4PSIwLjM5Ii8+PC9nPjwvZz48L3N2Zz4="
+                        width="15" alt="">
+
+                </label>
+
+
+            </div>
+
+
+
+            <div>
+                <label id="bold"> <img class="bold"
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3LjMzIDguNTgiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojY2NjO308L3N0eWxlPjwvZGVmcz48dGl0bGU+QXNzZXQgMTA8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJMYXllcl8zIiBkYXRhLW5hbWU9IkxheWVyIDMiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTS4zMywxMC4zMnYtMWwuOTEtLjE4VjNMLjMzLDIuNzh2LTFINC4xNGE0LjA5LDQuMDksMCwwLDEsMi4zNi41OSwyLDIsMCwwLDEsLjg1LDEuNzZBMS44OSwxLjg5LDAsMCwxLDcsNS4xNmExLjk0LDEuOTQsMCwwLDEtLjkyLjcsMi4wOCwyLjA4LDAsMCwxLC44Ni40LDEuNjMsMS42MywwLDAsMSwuNTEuNjgsMi4xMywyLjEzLDAsMCwxLC4xNy44OCwyLjI0LDIuMjQsMCwwLDEtLjgxLDEuODcsMy42OCwzLjY4LDAsMCwxLTIuMy42M1pNMyw1LjM0SDQuMmExLjcxLDEuNzEsMCwwLDAsMS4wNi0uMjksMSwxLDAsMCwwLC4zNy0uODIsMSwxLDAsMCwwLS4zNy0uODgsMS44MywxLjgzLDAsMCwwLTEuMTItLjI4SDNaTTMsOUg0LjU1YTEuNTksMS41OSwwLDAsMCwxLS4zQTEuMDgsMS4wOCwwLDAsMCw2LDcuODJhMS42NiwxLjY2LDAsMCwwLS4xNC0uNzEsMSwxLDAsMCwwLS40MS0uNDQsMS42OCwxLjY4LDAsMCwwLS43Mi0uMTRIM1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjMzIC0xLjc0KSIvPjwvZz48L2c+PC9zdmc+"
+                        alt="">
+                </label>
+            </div>
+
+
+            <!-- italic -->
+            <div>
+                <label id="italic">
+                    <img class="italic"
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1LjIgOC43NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNjY2M7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5pdGFsaWM8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJMYXllcl80IiBkYXRhLW5hbWU9IkxheWVyIDQiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUuMjEsMi43NEM0LjA4LDIuODMsNCwyLjkxLDMuNzksMy44OUwyLjcxLDkuNTRjLS4yLDEtLjA4LDEuMTIsMSwxLjJsLS4wNy4zOEguMDlsLjA5LS4zOGMxLjA5LS4xLDEuMjEtLjE5LDEuNDEtMS4yTDIuNjgsMy44OWMuMTktMSwuMDgtMS4wNi0xLjA1LTEuMTVsLjA4LS4zOEg1LjNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMC4wOSAtMi4zNikiLz48L2c+PC9nPjwvc3ZnPg=="
+                        alt="" />
+                </label>
+            </div>
+            <div>
+                <!-- alignLeftText -->
+                <label id="alignLeftText">
+                    <img class=" "
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4LjAzIDcuMjkiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojY2NjO308L3N0eWxlPjwvZGVmcz48dGl0bGU+bGVmdDwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzYiIGRhdGEtbmFtZT0iTGF5ZXIgNiI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIwLjAzIiB3aWR0aD0iOCIgaGVpZ2h0PSIwLjkxIiByeD0iMC4yOCIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeT0iNCIgd2lkdGg9IjgiIGhlaWdodD0iMC45MSIgcng9IjAuMjgiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHk9IjEuOTMiIHdpZHRoPSI1Ljk3IiBoZWlnaHQ9IjAuOTEiIHJ4PSIwLjI0Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB5PSI2LjM4IiB3aWR0aD0iNS43NiIgaGVpZ2h0PSIwLjkxIiByeD0iMC4yNCIvPjwvZz48L2c+PC9zdmc+"
+                        width="15" alt="" />
+                </label>
+            </div>
+
+            <div>
+                <!-- alignCenterText -->
+                <label id="alignCenterText">
+                    <img class=" "
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4IDcuMjkiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojY2NjO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y2VudGVyXzE8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJjZW50ZXIiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjgiIGhlaWdodD0iMC45MSIgcng9IjAuMjgiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHk9IjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjAuOTEiIHJ4PSIwLjI4Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxLjEzIiB5PSIxLjkzIiB3aWR0aD0iNS43NCIgaGVpZ2h0PSIwLjkxIiByeD0iMC4yNCIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMS4yMyIgeT0iNi4zOCIgd2lkdGg9IjUuNTMiIGhlaWdodD0iMC45MSIgcng9IjAuMjMiLz48L2c+PC9nPjwvc3ZnPg=="
+                        width="15" alt="" />
+                </label>
+            </div>
+            <div>
+                <!-- alignRightText -->
+                <label id="alignRightText">
+                    <img class=" "
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4IDcuMjkiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojY2NjO308L3N0eWxlPjwvZGVmcz48dGl0bGU+cmlnaHQ8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJyaWdodCI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iOCIgaGVpZ2h0PSIwLjkxIiByeD0iMC4yOCIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeT0iNCIgd2lkdGg9IjgiIGhlaWdodD0iMC45MSIgcng9IjAuMjgiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjIuMDMiIHk9IjEuOTMiIHdpZHRoPSI1Ljk3IiBoZWlnaHQ9IjAuOTEiIHJ4PSIwLjI0Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyLjI0IiB5PSI2LjM4IiB3aWR0aD0iNS43NiIgaGVpZ2h0PSIwLjkxIiByeD0iMC4yNCIvPjwvZz48L2c+PC9zdmc+"
+                        alt="" width="15" />
+                </label>
+            </div>
+
+
+
+        </div>
+        <input type="file" class="btn btn-sm btn-primary " id="upload-image" value="Upload Image"
+            style="width:280px; height: 30px; ">
+
+
+    </div>
+
+
+    <main>
+
+        <div id="canvas-background" class="canvas-container">
+
+
+        </div>
+
+
+
+
+    </main>
+
+
+
+
+    <script type="module" src="./main.js"></script>
+
+    <script src="./library_js/fabric.js"></script>
+
+    <script src="./library_js/fonts.js"></script>
+    <script src="./print_js/print.js"></script>
+
+
+
+</body>
+
+</html>
