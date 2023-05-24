@@ -6,7 +6,6 @@ import { class_picture } from "./json_canvas/_canvas_class_picture.js";
 export class Menu_tools extends Modification {
   keyboard_shortcut() {
     document.addEventListener("keydown", (event) => {
-      console.log(event.key);
       if (event.key === "d") {
         event.preventDefault();
       }
@@ -51,7 +50,7 @@ export class Menu_tools extends Modification {
         // Access individual object properties or perform actions
         return object.name == "textbox-name";
       });
-      console.log(image_name);
+
       a.download = `${image_name[0].text}.png`;
       a.click();
       document.body.removeChild(a);
@@ -117,6 +116,13 @@ export class Menu_tools extends Modification {
     var imageUploadInput = document.getElementById("upload-image");
 
     imageUploadInput.addEventListener("change", (e) => {
+      let image_name = this.canvas.getObjects().filter((object) => {
+        // Access individual object properties or perform actions
+        return object.name == "image-user";
+      });
+      this.canvas.remove(image_name[0]);
+
+      console.log(this.canvas.getObjects());
       var file = e.target.files[0];
       var reader = new FileReader();
 
@@ -124,7 +130,7 @@ export class Menu_tools extends Modification {
         var imageUrl = event.target.result;
         fabric.Image.fromURL(imageUrl, (img) => {
           img.scaleToWidth(500);
-
+          img.name = "image-user";
           this.canvas.add(img);
           this.canvas.sendToBack(img);
           imageUploadInput.value = "";
