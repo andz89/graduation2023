@@ -62,7 +62,7 @@ export const class_picture = {
         strokeWidth: 1,
         lockMovementX: true,
         lockMovementY: true,
-
+        hasControls: true,
         strokeDashArray: null,
         strokeLineCap: "butt",
         strokeDashOffset: 0,

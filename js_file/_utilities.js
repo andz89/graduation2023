@@ -84,20 +84,10 @@ export class Utilities extends Modification {
 
       // -------------------------------------//
 
-      if (activeObj.group !== undefined) {
-        let group = activeObj.group;
-        group.set("borderColor", "#333");
-        group.set("cornerColor", "#17a2b8");
-        group.set("cornerSize", 12);
-        group.set("cornerStyle", "circle");
-        group.set("transparentCorners", false);
-        group.set("lockUniScaling", true);
-        group.setControlsVisibility({ mtr: false });
-      }
-
       activeObj.setControlsVisibility({ mtr: false });
       activeObj.set("borderColor", "#333");
       activeObj.set("cornerColor", "#17a2b8");
+      activeObj.set("cornerSize", 0);
 
       activeObj.set("cornerStyle", "circle");
       activeObj.set("transparentCorners", false);
