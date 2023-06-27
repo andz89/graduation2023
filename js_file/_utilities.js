@@ -87,7 +87,7 @@ export class Utilities extends Modification {
       activeObj.setControlsVisibility({ mtr: false });
       activeObj.set("borderColor", "#333");
       activeObj.set("cornerColor", "#17a2b8");
-      activeObj.set("cornerSize", 0);
+      activeObj.set("cornerSize", 15);
 
       activeObj.set("cornerStyle", "circle");
       activeObj.set("transparentCorners", false);
