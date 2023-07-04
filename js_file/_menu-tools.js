@@ -6,9 +6,9 @@ import { class_picture } from "./json_canvas/_canvas_class_picture.js";
 export class Menu_tools extends Modification {
   keyboard_shortcut() {
     document.addEventListener("keydown", (event) => {
-      if (event.key === "d") {
-        event.preventDefault();
-      }
+      // if (event.key === "d") {
+      //   event.preventDefault();
+      // }
     });
     fabric.util.addListener(document.body, "keydown", (options) => {
       if (options.repeat) {
