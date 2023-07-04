@@ -169,5 +169,5 @@ export const with_honors = {
     ],
     background: "#fff",
   },
-  size: { w: 500, h: 610 },
+  size: { w: 500, h: 600 },
 };
