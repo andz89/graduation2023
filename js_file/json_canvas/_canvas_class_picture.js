@@ -61,7 +61,7 @@ export const class_picture = {
         stroke: null,
         strokeWidth: 1,
         lockMovementX: true,
-        lockMovementY: true,
+
         hasControls: false,
         strokeDashArray: null,
         strokeLineCap: "butt",
@@ -85,7 +85,7 @@ export const class_picture = {
         skewY: 0,
         fontFamily: "Times New Roman",
         fontWeight: "normal",
-        fontSize: 46,
+        fontSize: 38,
         text: "Rivero, Dawn Andrew N.",
         name: "textbox-name",
         underline: false,

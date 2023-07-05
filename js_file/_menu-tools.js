@@ -114,30 +114,38 @@ export class Menu_tools extends Modification {
   }
   upload_image() {
     var imageUploadInput = document.getElementById("upload-image");
-
     imageUploadInput.addEventListener("change", (e) => {
       let image_name = this.canvas.getObjects().filter((object) => {
-        // Access individual object properties or perform actions
         return object.name == "image-user";
       });
       this.canvas.remove(image_name[0]);
 
-      console.log(this.canvas.getObjects());
       var file = e.target.files[0];
       var reader = new FileReader();
 
+      let obj = this.canvas.getObjects();
+      let a = obj.filter((e) => {
+        return e.name == "textbox-name";
+      });
+
       reader.onload = (event) => {
-        var imageUrl = event.target.result;
-        fabric.Image.fromURL(imageUrl, (img) => {
-          img.scaleToWidth(500);
-          img.name = "image-user";
-          this.canvas.add(img);
-          this.canvas.sendToBack(img);
+        var imageBlob = new Blob([event.target.result], { type: file.type });
+
+        var blobURL = URL.createObjectURL(imageBlob);
+        fabric.Image.fromURL(blobURL, (fabricImg) => {
+          fabricImg.scaleToWidth(500);
+          fabricImg.name = "image-user";
+          this.canvas.add(fabricImg);
+          this.canvas.sendToBack(fabricImg);
+          a[0].set({ text: file.name.replace(/\.[^.]+$/, "") });
+          this.canvas.renderAll();
           imageUploadInput.value = "";
+
+          URL.revokeObjectURL(blobURL); // Release the object URL after the image is loaded
         });
       };
 
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     });
   }
 }

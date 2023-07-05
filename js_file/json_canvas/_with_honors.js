@@ -61,7 +61,7 @@ export const with_honors = {
         stroke: null,
         strokeWidth: 1,
         lockMovementX: true,
-        lockMovementY: true,
+
         strokeDashArray: null,
         strokeLineCap: "butt",
         strokeDashOffset: 0,
@@ -84,7 +84,7 @@ export const with_honors = {
         skewY: 0,
         fontFamily: "Times New Roman",
         fontWeight: "normal",
-        fontSize: 46,
+        fontSize: 38,
         text: "Rivero, Dawn Andrew N.",
         hasControls: false,
         name: "textbox-name",
@@ -120,7 +120,6 @@ export const with_honors = {
         stroke: null,
         strokeWidth: 1,
         lockMovementX: true,
-        lockMovementY: true,
 
         strokeDashArray: null,
         strokeLineCap: "butt",

@@ -280,7 +280,6 @@ export class Right_tools extends Modification {
       // console.log( object._objects[0])
       if (object.type == "group") {
         if (object._objects[0].name == "clip-stroke") {
-          console.log(object._objects[0].name);
           let a = object._objects[0];
           a.strokeWidth = parseInt(value, 10);
           (a.objectCaching = false), (a.dirty = true);
@@ -402,11 +401,9 @@ export class Right_tools extends Modification {
       let object = this.canvas.getActiveObject();
       if (e.target.value !== "Times New Roman") {
         loadAndUse(e.target.value);
-        console.log("1");
       } else {
         object.set("fontFamily", e.target.value);
         this.canvas.renderAll();
-        console.log("2");
       }
     };
 
@@ -448,7 +445,7 @@ export class Right_tools extends Modification {
       let lock_objects = objects.filter((each_object) => {
         if (each_object.name === "standard_crop") {
           this.canvas.remove(each_object);
-          console.log(each_object);
+
           this.canvas.renderAll();
         }
         if (
